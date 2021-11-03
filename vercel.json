@@ -1,0 +1,22 @@
+{
+    "version": 2,
+    "env": {
+    },
+    "builds": [
+      {
+        "src": "app.js",
+        "use": "@vercel/node",
+        "config": { "includeFiles": ["/torrent/**"] }
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/(.*)",
+        "dest": "app.js"
+      },
+      {
+        "src": "/",
+        "dest": "app.js"
+      }
+    ]
+  }
