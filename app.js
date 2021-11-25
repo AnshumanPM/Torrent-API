@@ -92,10 +92,7 @@ app.use('/api/:website/:query/:page?', (req, res, next) => {
                         error: 'No search result available for query (' + query + ')'
                     })
                 } else {
-                    // return res.send(data);
-                    return res.json({
-                        error: 'Website is blocked change IP'
-                    })
+                    return res.send(data);
                 }
 
             })
