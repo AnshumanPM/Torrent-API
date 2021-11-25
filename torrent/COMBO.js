@@ -19,6 +19,7 @@ async function combo(query, page) {
             scrap1337x.torrent1337x(query, page),
             rarbg(query, page)
         ])
+        // .then(([tgx, nyaasi, yts, piratebay, torlock, eztv, x1337, rarbg]) => {
         .then(([tgx, nyaasi, yts, piratebay, eztv, x1337, rarbg]) => {
 
             if (tgx !== null && tgx.length > 0) {
