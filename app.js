@@ -3,7 +3,7 @@ const scrap1337x = require('./torrent/1337x');
 const scrapNyaa = require('./torrent/nyaaSI');
 const scrapYts = require('./torrent/yts');
 const scrapPirateBay = require('./torrent/pirateBay');
-// const scrapTorLock = require('./torrent/torLock');
+const scrapTorLock = require('./torrent/torLock');
 const scrapEzTVio = require('./torrent/ezTV');
 const torrentGalaxy = require('./torrent/torrentGalaxy');
 const combo = require('./torrent/COMBO');
@@ -79,24 +79,27 @@ app.use('/api/:website/:query/:page?', (req, res, next) => {
 
             })
     }
-    // if (website === 'torlock') {
-    //     scrapTorLock.torLock(query, page)
-    //         .then((data) => {
-    //             if (data === null) {
-    //                 return res.json({
-    //                     error: 'Website is blocked change IP'
-    //                 })
+    if (website === 'torlock') {
+        scrapTorLock.torLock(query, page)
+            .then((data) => {
+                if (data === null) {
+                    return res.json({
+                        error: 'Website is blocked change IP'
+                    })
 
-    //             } else if (data.length === 0) {
-    //                 return res.json({
-    //                     error: 'No search result available for query (' + query + ')'
-    //                 })
-    //             } else {
-    //                 return res.send(data);
-    //             }
+                } else if (data.length === 0) {
+                    return res.json({
+                        error: 'No search result available for query (' + query + ')'
+                    })
+                } else {
+                    // return res.send(data);
+                    return res.json({
+                        error: 'Website is blocked change IP'
+                    })
+                }
 
-    //         })
-    // }
+            })
+    }
     if (website === 'piratebay') {
         scrapPirateBay.pirateBay(query, page)
             .then((data) => {
