@@ -16,6 +16,8 @@ const bitSearch = require('./torrent/bitSearch');
 
 const app = express();
 
+const arc_io = '<script async src="https://arc.io/widget.min.js#7qDyaP2h"></script>'
+
 app.use('/api/:website/:query/:page?', (req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -277,7 +279,7 @@ app.use('/api/:website/:query/:page?', (req, res, next) => {
 });
 
 app.use('/', (req, res) => {
-    res.send('<h1>Welcome to 1337x, NyaaSi, YTS, PirateBay, Torlock, EzTvio, TorrentGalaxy, Rarbg, Zooqle, KickAss, Bitsearch and Ettv Central Unoffical API</h1>');
+    res.send('<h1>Welcome to 1337x, NyaaSi, YTS, PirateBay, Torlock, EzTvio, TorrentGalaxy, Rarbg, Zooqle, KickAss, Bitsearch and Ettv Central Unoffical API</h1>' + arc_io);
 });
 const PORT = process.env.PORT || 3001;
 console.log('Listening on PORT : ', PORT);
