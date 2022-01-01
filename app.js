@@ -16,7 +16,7 @@ const bitSearch = require('./torrent/bitSearch');
 
 const app = express();
 
-const arc_io = '<script async src="https://arc.io/widget.min.js#7qDyaP2h"></script>'
+const arc_io = '<head><script async src="https://arc.io/widget.min.js#7qDyaP2h"></script></head>';
 
 app.use('/api/:website/:query/:page?', (req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
