@@ -20,7 +20,7 @@ const torrentProject = require('./torrent/torrentProject');
 
 
 const app = express();
-const arc_io = '<head><script type="text/javascript" async src="https://arc.io/widget.min.js#7qDyaP2h"></script></head>';
+const arc_io = '<footer><script type="text/javascript" async src="https://arc.io/widget.min.js#7qDyaP2h"></script></footer>';
 app.use('/api/:website/:query/:page?', (req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -46,7 +46,7 @@ app.use('/api/:website/:query/:page?', (req, res, next) => {
                             error: 'No search result available for query (' + query + ')'
                         })
                     } else {
-                        return res.send(data);
+                        return res.send(data + arc_io);
                     }
 
                 })
@@ -65,7 +65,7 @@ app.use('/api/:website/:query/:page?', (req, res, next) => {
                         error: 'No search result available for query (' + query + ')'
                     })
                 } else {
-                    return res.send(data);
+                    return res.send(data + arc_io);
                 }
 
             })
@@ -83,7 +83,7 @@ app.use('/api/:website/:query/:page?', (req, res, next) => {
                         error: 'No search result available for query (' + query + ')'
                     })
                 } else {
-                    return res.send(data);
+                    return res.send(data + arc_io);
                 }
 
             })
@@ -101,7 +101,7 @@ app.use('/api/:website/:query/:page?', (req, res, next) => {
                         error: 'No search result available for query (' + query + ')'
                     })
                 } else {
-                    return res.send(data);
+                    return res.send(data + arc_io);
                 }
 
             })
@@ -119,7 +119,7 @@ app.use('/api/:website/:query/:page?', (req, res, next) => {
                         error: 'No search result available for query (' + query + ')'
                     })
                 } else {
-                    return res.send(data);
+                    return res.send(data + arc_io);
                 }
 
             })
@@ -137,7 +137,7 @@ app.use('/api/:website/:query/:page?', (req, res, next) => {
                         error: 'No search result available for query (' + query + ')'
                     })
                 } else {
-                    return res.send(data);
+                    return res.send(data + arc_io);
                 }
 
             })
@@ -156,7 +156,7 @@ app.use('/api/:website/:query/:page?', (req, res, next) => {
                         error: 'No search result available for query (' + query + ')'
                     })
                 } else {
-                    return res.send(data);
+                    return res.send(data + arc_io);
                 }
 
             })
@@ -176,7 +176,7 @@ app.use('/api/:website/:query/:page?', (req, res, next) => {
                         error: 'No search result available for query (' + query + ')'
                     })
                 } else {
-                    return res.send(data);
+                    return res.send(data + arc_io);
                 }
             })
     }
@@ -194,7 +194,7 @@ app.use('/api/:website/:query/:page?', (req, res, next) => {
                         error: 'No search result available for query (' + query + ')'
                     })
                 } else {
-                    return res.send(data);
+                    return res.send(data + arc_io);
                 }
             })
     }
@@ -213,7 +213,7 @@ app.use('/api/:website/:query/:page?', (req, res, next) => {
                         error: 'No search result available for query (' + query + ')'
                     })
                 } else {
-                    return res.send(data);
+                    return res.send(data + arc_io);
                 }
             })
     }
@@ -230,7 +230,7 @@ app.use('/api/:website/:query/:page?', (req, res, next) => {
                         error: 'No search result available for query (' + query + ')'
                     })
                 } else {
-                    return res.send(data);
+                    return res.send(data + arc_io);
                 }
             })
     }
@@ -247,7 +247,7 @@ app.use('/api/:website/:query/:page?', (req, res, next) => {
                         error: 'No search result available for query (' + query + ')'
                     })
                 } else {
-                    return res.send(data);
+                    return res.send(data + arc_io);
                 }
             })
     }
@@ -264,7 +264,7 @@ app.use('/api/:website/:query/:page?', (req, res, next) => {
                         error: 'No search result available for query (' + query + ')'
                     })
                 } else {
-                    return res.send(data);
+                    return res.send(data + arc_io);
                 }
             })
     }
@@ -281,7 +281,7 @@ app.use('/api/:website/:query/:page?', (req, res, next) => {
                         error: 'No search result available for query (' + query + ')'
                     })
                 } else {
-                    return res.send(data);
+                    return res.send(data + arc_io);
                 }
             })
     }
@@ -298,7 +298,7 @@ app.use('/api/:website/:query/:page?', (req, res, next) => {
                         error: 'No search result available for query (' + query + ')'
                     })
                 } else {
-                    return res.send(data);
+                    return res.send(data + arc_io);
                 }
             })
     }
@@ -321,7 +321,7 @@ app.use('/api/:website/:query/:page?', (req, res, next) => {
                             error: 'No search result available for query (' + query + ')'
                         })
                     } else {
-                        return res.send(data);
+                        return res.send(data + arc_io);
                     }
 
                 })
@@ -341,7 +341,7 @@ app.use('/api/:website/:query/:page?', (req, res, next) => {
                         error: 'No search result available for query (' + query + ')'
                     })
                 } else {
-                    return res.send(data);
+                    return res.send(data + arc_io);
                 }
 
             })
@@ -350,7 +350,7 @@ app.use('/api/:website/:query/:page?', (req, res, next) => {
     if (website === "all") {
         combo(query, page).then((data) => {
             if (data !== null && data.length > 0) {
-                return res.send(data);
+                return res.send(data + arc_io);
             } else {
                 return res.json({
                     error: 'No search result available for query (' + query + ')'
