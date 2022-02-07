@@ -380,16 +380,14 @@ app.use('/api/:website/:query/:page?', (req, res, next) => {
 
 });
 
-app.use('/', (req, res) => {
-    res.send('<h1>Welcome to 1337x, NyaaSi, YTS, PirateBay, Torlock, EzTvio, TorrentGalaxy, Rarbg, Zooqle, KickAss, Bitsearch, Glodls, MagnetDL, Limetorrent, TorrentFunk, TorrentProject and Ettv Central Unoffical API</h1>' + arc_io);
-});
 app.use('/available',(req, res) => {
-    let website = (req.params).toLowerCase();
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    if (website === "available"){
     return res.json(sites);
-}
+});
+
+app.use('/', (req, res) => {
+    res.send('<h1>Welcome to 1337x, NyaaSi, YTS, PirateBay, Torlock, EzTvio, TorrentGalaxy, Rarbg, Zooqle, KickAss, Bitsearch, Glodls, MagnetDL, Limetorrent, TorrentFunk, TorrentProject and Ettv Central Unoffical API</h1>' + arc_io);
 });
 const PORT = process.env.PORT || 3001;
 console.log('Listening on PORT : ', PORT);
