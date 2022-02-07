@@ -20,6 +20,21 @@ const torrentProject = require('./torrent/torrentProject');
 
 
 const app = express();
+const sites = [
+  {
+    Ettv: "ettv",
+    Nyaasi: "nyaasi",
+    KickAss: "kickass",
+    Magnetdl: "magnetdl",
+    LimeTorrent: "limetorrent",
+    TorrentFunk: "torrentfunk",
+    TorrentProject: "torrentproject",
+    Glodls: "glodls",
+    BitSearch: "bitsearch",
+    Zooqle: "zooqle",
+    Rarbg: "rarbg",
+  },
+];
 const arc_io = '<footer><script type="text/javascript" async src="https://arc.io/widget.min.js#7qDyaP2h"></script></footer>';
 app.use('/api/:website/:query/:page?', (req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
@@ -360,10 +375,7 @@ app.use('/api/:website/:query/:page?', (req, res, next) => {
 
     }
     if (website === "available") {
-        let sites = ['ettv', 'nyaasi', 'kickass', 'magnetdl', 'limetorrent', 'torrentfunk', 'torrentproject', 'glodls', 'bitsearch', 'zooqle', 'rarbg'];
-        return res.json({
-            available: sites
-        })
+        return res.send(sites);
     }
      else if (website !== 'nyaasi' && website !== '1337x' && website !== 'yts' && website !== 'piratebay' && website !== 'torlock' && website !== 'eztv' && website !== 'tgx' && website !== 'all' && website !== "rarbg" && website !== 'ettv' && website !== 'zooqle' && website !== 'kickass' && website !== 'bitsearch' && website !== 'glodls' && website !== 'magnetdl' && website !== 'limetorrent' && website !== 'torrentfunk' && website !== 'torrentproject') {
         return res.json({
