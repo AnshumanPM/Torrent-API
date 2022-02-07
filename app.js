@@ -37,7 +37,6 @@ const arc_io = '<script type="text/javascript" async src="https://arc.io/widget.
 app.use('/api/:website/:query/:page?', (req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    res.header(`${arc_io}`)
     let website = (req.params.website).toLowerCase();
     let query = req.params.query;
     let page = req.params.page;
@@ -385,9 +384,12 @@ app.use('/', (req, res) => {
     res.send('<h1>Welcome to 1337x, NyaaSi, YTS, PirateBay, Torlock, EzTvio, TorrentGalaxy, Rarbg, Zooqle, KickAss, Bitsearch, Glodls, MagnetDL, Limetorrent, TorrentFunk, TorrentProject and Ettv Central Unoffical API</h1>' + arc_io);
 });
 app.use('/available',(req, res) => {
+    let website = (req.params).toLowerCase();
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    res.json(sites);
+    if (website === "available"){
+    return res.json(sites);
+}
 });
 const PORT = process.env.PORT || 3001;
 console.log('Listening on PORT : ', PORT);
