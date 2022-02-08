@@ -10,12 +10,12 @@
   ],
   "routes": [
     {
-      "src": "/(.*)",
-      "dest": "app.js"
-    },
-    {
       "src": "/arc-sw.js",
       "dest": "https://arc.io/arc-sw.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "app.js"
     }
   ]
 }

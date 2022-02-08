@@ -18,22 +18,29 @@ const limeTorrent = require('./torrent/limeTorrent');
 const torrentFunk = require('./torrent/torrentFunk');
 const torrentProject = require('./torrent/torrentProject');
 
+const request = require('request-promise');
+
 
 const app = express();
-const sites = {
-    Ettv: "ettv",
-    Nyaasi: "nyaasi",
-    KickAss: "kickass",
-    Magnetdl: "magnetdl",
-    LimeTorrent: "limetorrent",
-    TorrentFunk: "torrentfunk",
-    TorrentProject: "torrentproject",
-    Glodls: "glodls",
-    BitSearch: "bitsearch",
-    Zooqle: "zooqle",
-    Rarbg: "rarbg",
-  };
-const arc_io = '<script type="text/javascript" async src="https://arc.io/widget.min.js#7qDyaP2h"></script>';
+const sites = [
+    {'Name':'1337x','Site': 'https://1337xx.to'},
+    {'Name':'bitSearch','Site': 'https://bitsearch.to'},
+    {'Name':'ettv','Site': 'https://www.ettvcentral.com'},
+    {'Name':'gloTorrents','Site': 'https://glodls.to'},
+    {'Name':'kickAss','Site': 'https://kickasstorrents.to'},
+    {'Name':'limeTorrent','Site': 'https://www.limetorrents.pro'},
+    {'Name':'magnet_dl','Site': 'https://magnetdl.unblockninja.com'},
+    {'Name':'nyaaSI','Site': 'https://nyaa.si'},
+    {'Name':'pirateBay','Site': 'https://thehiddenbay.com'},
+    {'Name':'rarbg','Site': 'https://rargb.to'},
+    {'Name':'torLock','Site': 'https://www.torlock.com'},
+    {'Name':'torrentFunk','Site': 'https://www.torrentfunk.com'},
+    {'Name':'torrentGalaxy','Site': 'https://torrentgalaxy.to'},
+    {'Name':'torrentProject','Site': 'https://torrentproject2.com'},
+    {'Name':'yts','Site': 'https://yts.mx'},
+    {'Name':'zooqle','Site': 'https://zooqle.com'}
+];
+const arc_io = '<footer><script type="text/javascript" async src="https://arc.io/widget.min.js#7qDyaP2h"></script></footer>';
 app.use('/api/:website/:query/:page?', (req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -380,11 +387,9 @@ app.use('/api/:website/:query/:page?', (req, res, next) => {
 
 });
 
-app.use('/available',(req, res) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    return res.json(sites);
-});
+app.use("/available", (req, res) => {
+    return res.send(sites);
+})
 
 app.use('/', (req, res) => {
     res.send('<h1>Welcome to 1337x, NyaaSi, YTS, PirateBay, Torlock, EzTvio, TorrentGalaxy, Rarbg, Zooqle, KickAss, Bitsearch, Glodls, MagnetDL, Limetorrent, TorrentFunk, TorrentProject and Ettv Central Unoffical API</h1>' + arc_io);
